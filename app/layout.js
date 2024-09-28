@@ -2,7 +2,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
 
+import { ThemeProvider } from "@/components/theme-provider"
+
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "@/components/custom/ToggleBtn";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -31,7 +34,17 @@ export default function RootLayout({ children }) {
       <body
         className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}
       >
-        {children}
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="p-3">
+            <ModeToggle />
+            </div>
+            {children}
+          </ThemeProvider>
       </body>
     </html>
   );
