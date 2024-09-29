@@ -2,10 +2,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/custom/theme-provider";
 
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/custom/ToggleBtn";
+import Sidebar from "@/components/custom/sidebar";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -32,19 +33,32 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="p-3">
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="p-3">
             <ModeToggle />
-            </div>
+          </div>
+
+        <div className="flex flex-wrap gap-5">
+          
+        <div className="w-2/12 md:3/12">
+            <Sidebar />
+          </div>  
+
+          <div className="w-9/12 md:w-8/12">
             {children}
-          </ThemeProvider>
+          </div>
+        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
