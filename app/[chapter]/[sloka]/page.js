@@ -6,7 +6,7 @@ const SlokaDetail = async ({ params }) => {
   // console.log(chapter, sloka);
 
   const data = await fetch(
-    `https://vedicscriptures.github.io/slok/${chapter}/${sloka}`
+    `https://vedicscriptures.github.io/slok/${ch}/${sloka}`
   );
   const slokaresponse = await data.json();
   // console.log(slokaresponse)
@@ -24,7 +24,8 @@ const SlokaDetail = async ({ params }) => {
     transliteration,
     listofAuthors,
   };
-  console.log(modifiedData);
+
+  // console.log(modifiedData);
 
   // different different translations named as follows:
   
