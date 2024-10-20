@@ -9,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import Backbtn from "@/components/custom/backbtn";
 
 const Detailpage = async ({ params }) => {
   const { chapter } = params;
@@ -32,6 +33,9 @@ const Detailpage = async ({ params }) => {
 
   return (
     <div className="flex flex-col gap-5">
+      {/* this is backbtn for navigating back  */}
+      <Backbtn />
+
       {/* this div for showing all the information */}
       <div className="flex flex-col gap-3">
         <div className="text-3xl text-center">
@@ -62,10 +66,7 @@ const Detailpage = async ({ params }) => {
 
         <Pagination>
           <PaginationContent>
-            
-            <div className="flex flex-wrap gap-1 mt-2">
-              {...listofLinks}
-            </div>
+            <div className="flex flex-wrap gap-1 mt-2">{...listofLinks}</div>
           </PaginationContent>
         </Pagination>
       </div>
