@@ -1,3 +1,4 @@
+import Accordian from "@/components/custom/Accordian";
 import Image from "next/image";
 
 const headingText = "ShrimadBhagvad Gita";
@@ -24,6 +25,9 @@ export default function Home() {
         </li>
 
       </ul>
+
+      {/* Accoridan component */}
+      <Accordian />
     </div>
   );
 }
